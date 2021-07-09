@@ -1,0 +1,6 @@
+#!/bin/sh
+
+psp-gcc -I`psp-config -p`/include *.c -G0 -c
+rm libme.a
+psp-ar q libme.a *.o
+psp-ranlib libme.a

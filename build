@@ -1,0 +1,5 @@
+#!/bin/sh
+
+psp-gcc me_mem_dump.c crt0.c -G0 -I`psp-config -p`/include -Ime -c -msoft-float
+psp-ld --section-start .init=88300000 me_mem_dump.o crt0.o -L`psp-config -p`/lib -Lme -lc -lme -o metest.elf
+psp-gcc main.c -G0 -lmeinit -lpspdebug -lpsplibc -lpspdisplay -lpspge -lpspuser -lpspkernel -L`psp-config -p`/lib -Lmeinit -Imeinit -I`psp-config -p`/include -o meloader.elf

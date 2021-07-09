@@ -1,0 +1,6 @@
+#!/bin/sh
+
+psp-gcc -I`psp-config -p`/include *.c *.S -G0 -c
+rm libmeinit.a
+psp-ar q libmeinit.a *.o
+psp-ranlib libmeinit.a
